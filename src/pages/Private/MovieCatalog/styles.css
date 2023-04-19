@@ -1,0 +1,33 @@
+.container-listmovie{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.listmovie-title h1{
+    margin: 20px;
+    color: #ffff;
+    font-size: 24px;
+
+}
+
+.listmovie-details h4{
+    font-weight: unset;
+    margin: 20px;
+    text-align: left;
+    justify-content:flex-start;
+    color: #ffff;
+    font-size: 18px;
+}
+
+@media (min-width: 1200px) {
+    .listmovie-title h1{
+        font-size: 48px;
+    }
+
+    .listmovie-details h4{
+        font-size: 24px;
+    }
+
+}
+

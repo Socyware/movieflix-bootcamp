@@ -1,0 +1,14 @@
+.container-moviedetails{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.container-moviedetails h1{
+    margin: 0 auto;
+    width: 100%;
+    font-size: 24px;
+    color: #ffff;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,13 @@
+.container-validation {
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 157px;
+  width: 100%;
+}
+
+.btn-validation{
+    margin-top: 10px;
+}
