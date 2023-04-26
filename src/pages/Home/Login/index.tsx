@@ -4,6 +4,7 @@ import { requestBackendLogin } from "util/requests";
 import { useState } from "react";
 import "./styles.css";
 import { getAuthData, saveAuthData } from "util/storage";
+import history from "util/history";
 
 type FormData = {
   username: string;
@@ -23,6 +24,7 @@ const Login = () => {
         console.log('TOKEN GERADO: ' + token);
         setHasError(false);
         console.log("SUCESSO", response);
+        history.push('/movies');
       })
       .catch((error) => {
         setHasError(true);

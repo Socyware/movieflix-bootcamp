@@ -4,6 +4,7 @@ import MovieDetails from "pages/Private/MovieDetails";
 import MovieCatalog from "pages/Private/MovieCatalog";
 import {Route, Router, Switch } from "react-router-dom";
 import history from "util/history";
+import MovieCard from "components/MovieCard";
 
 const Routes = () => (
  <Router history={history}>

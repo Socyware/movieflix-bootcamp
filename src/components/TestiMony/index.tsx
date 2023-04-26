@@ -2,8 +2,9 @@ import { ReactComponent as Star } from "assets/img/Star.svg";
 import "./styles.css";
 
 
-
 const TestiMony = () => {
+
+  
   return (
     <div className="container-testimony base-card">
       <div className="card-testimony">
