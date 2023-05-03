@@ -1,13 +1,31 @@
 .navbar {
-    height: 68px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding-left:  20px;
-    
+  height: 68px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
 }
 
-.nav-logo-text{
-    font-size: 24px;
+.container-fluid {
+  display: flex;
+  justify-content: space-around;
+}
 
+.nav-logo-text {
+  font-size: 24px;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-logout {
+text-align: center;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  width: 100px;
+  margin-right: 10px;
 }

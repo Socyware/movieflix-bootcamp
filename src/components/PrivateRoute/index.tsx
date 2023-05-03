@@ -1,9 +1,20 @@
+import { Redirect, Route } from "react-router-dom";
+import { isAuthenticated } from "util/auth";
+
+type Props = {
+  children: React.ReactNode;
+  path: string;
+};
 
 
-
-const PrivateRoute = () => {
+const PrivateRoute = ({ children , path } : Props) => {
   return (
-    <h1>teste</h1>
+    <Route
+      path={path}
+      render={() =>
+        isAuthenticated() ? <>children</> : <Redirect to="/"/>
+      } 
+    />
   );
 };
 

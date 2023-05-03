@@ -4,8 +4,8 @@ import history from "./history";
 import { getAuthData } from "./storage";
 
 export const BASE_URL =
-  process.env.REACT_APP_BACKEND_URL ?? "https://movieflix-devsuperior.herokuapp.com";
-
+  process.env.REACT_APP_BACKEND_URL ??
+  "https://movieflix-devsuperior.herokuapp.com";
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? "myclientid";
 const CLIENT_SECRET = process.env.REACT_CLIENT_SECRET ?? "myclientsecret";
@@ -17,7 +17,7 @@ type LoginData = {
 
 export const requestBackendLogin = (loginData: LoginData) => {
   const headers = {
-    "Content-Type" : "application/x-www-form-urlencoded",
+    "Content-Type": "application/x-www-form-urlencoded",
     Authorization: "Basic " + window.btoa(CLIENT_ID + ":" + CLIENT_SECRET),
   };
 
@@ -46,8 +46,6 @@ export const requestBackend = (config: AxiosRequestConfig) => {
   return axios({ ...config, baseURL: BASE_URL, headers });
 };
 
-
-
 // Add a request interceptor
 axios.interceptors.request.use(
   function (config) {
@@ -68,14 +66,9 @@ axios.interceptors.response.use(
   },
   function (error) {
     if (error.response.status === 401 || error.response.status === 403) {
-      history.push("/");
+      history.push("/home");
     }
     //
     return Promise.reject(error);
   }
 );
-
-
-
-
-
