@@ -1,36 +1,35 @@
 import { Link } from "react-router-dom";
 import "bootstrap/js/src/collapse.js";
-import { TokenData, getTokenData, isAuthenticated } from "util/auth";
+import { getTokenData, isAuthenticated } from "util/auth";
 import { removeAuthData } from "util/storage";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import history from "util/history";
+import { AuthContext } from "AuthContext";
 import "./styles.css";
 
-type AuthData = {
-  authenticated: boolean;
-  tokenData?: TokenData;
-};
 
 const Navbar = () => {
-  const [authData, setAuthData] = useState<AuthData>({ authenticated: false });
+
+  const {authContextData, setAuthContextData } = useContext(AuthContext);
+
 
   useEffect(() => {
     if (isAuthenticated()) {
-      setAuthData({
+      setAuthContextData({
         authenticated: true,
         tokenData: getTokenData(),
       });
     } else {
-      setAuthData({
+      setAuthContextData({
         authenticated: false,
       });
     }
-  }, []);
+  }, [setAuthContextData]);
 
   const handleLogoutClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     removeAuthData();
-    setAuthData({
+    setAuthContextData({
       authenticated: false,
     });
     history.replace("/");
@@ -46,7 +45,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-logout">
-          {authData.authenticated ? (
+          {authContextData.authenticated ? (
             <a href="#lougout" onClick={handleLogoutClick}>
               SAIR
             </a>
