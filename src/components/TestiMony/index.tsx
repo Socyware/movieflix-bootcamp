@@ -1,23 +1,23 @@
 import { ReactComponent as Star } from "assets/img/Star.svg";
-import "./styles.css";
+import { MoviesReviews } from "types/moviesReviews";
 
+type Props = {
 
-const TestiMony = () => {
+  reviews: MoviesReviews;
 
-  
+}
+
+const TestiMony = ({reviews} : Props) => {
+
   return (
     <div className="container-testimony base-card">
       <div className="card-testimony">
         <div className="card-testimony-title">
-          <Star /><h4>Maria</h4>
+          <Star />
+          <h4>{reviews.user.name}</h4>
         </div>
         <div className="card-testimony-description">
-          <h5>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Consequuntur, maiores accusamus? In veniam eaque laudantium quidem
-            vero sit, obcaecati at repudiandae ex tempore exercitationem, cum
-            voluptatum error recusandae itaque totam!
-          </h5>
+          <h5>{reviews.text}</h5>
         </div>
       </div>
     </div>

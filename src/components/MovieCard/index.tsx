@@ -1,23 +1,23 @@
-import  { AxiosRequestConfig } from 'axios';
-import { requestBackend } from 'util/requests';
 import { MovieById } from 'types/movieById';
 import './styles.css';
-import { useEffect, useState } from 'react';
 
-const MovieCard = () => {
+type Props = {
+   
+   movies: MovieById;
+  
+}
 
- 
-
-
+const MovieCard = ({movies} : Props) => {
 
    return (
    <div>
-    <div><h1>title</h1></div>
-    <div><h2>subTitle</h2></div>
-    <div><h3>year</h3></div>
-    <div><div></div></div>
-    <div>synopsis</div>
-    <div>genre</div>
+     <p>{movies.id}</p>
+     <h3>{movies.title}</h3>
+     <h5>{movies.subTitle}</h5>
+     <h5>{movies.year}</h5>
+     <div>{movies.imgUrl}</div>
+   
+  
    </div>
    
    );   

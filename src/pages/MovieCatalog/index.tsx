@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import MovieCard from "components/MovieCard";
 import "./styles.css";
+
+
 
 const MovieCatalog = () => {
 
-  
   return (
     <div className="container-listmovie">
       <div className="listmovie-title">
@@ -16,9 +16,7 @@ const MovieCatalog = () => {
         </Link>
         <h4>Acessar /movies/2</h4>
       </div>
-      <div>
-        <MovieCard/>
-      </div>
+      
     </div>
   );
 };

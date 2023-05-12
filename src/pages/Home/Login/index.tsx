@@ -6,22 +6,15 @@ import { saveAuthData } from "util/storage";
 import history from "util/history";
 import { AuthContext } from "AuthContext";
 import { getTokenData } from "util/auth";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { FormData } from "types/FormData";
+import { LocationState } from "types/LocationState";
 import "./styles.css";
-
-type FormData = {
-  username: string;
-  password: string;
-};
-
-type LocationState = {
-  from: string;
-};
 
 const Login = () => {
   const location = useLocation<LocationState>();
 
-  const { from } = location.state || { from: { pathname: "/" } };
+  const { from } = location.state || { from: { pathname: "/movies" } };
 
   const { setAuthContextData } = useContext(AuthContext);
 
@@ -94,7 +87,6 @@ const Login = () => {
               {errors.password?.message}
             </div>
           </div>
-
           <div className="login-submit">
             <ButtonIcon text="Fazer login" />
           </div>

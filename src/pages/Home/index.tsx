@@ -1,11 +1,10 @@
 import { ReactComponent as DesenhoLogin } from "assets/img/Desenho.svg";
 import "./Login/styles.css";
 import Login from "./Login";
-import { hasAnyRoles } from "util/auth";
+
 
 const Home = () => {
   return (
-    
     <div className="container-login">
       <Login />
       <div className="container-login-desenho">
@@ -19,7 +18,6 @@ const Home = () => {
           <DesenhoLogin />
         </div>
       </div>
-      <h1>Resultado = {hasAnyRoles(['ROLE_MEMBER' ]) ? 'sim' : 'nao'}</h1>
     </div>
   );
 };

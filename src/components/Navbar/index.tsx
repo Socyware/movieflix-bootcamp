@@ -32,7 +32,7 @@ const Navbar = () => {
     setAuthContextData({
       authenticated: false,
     });
-    history.replace("/");
+    history.replace("/movies");
   };
 
   return (

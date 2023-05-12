@@ -4,6 +4,7 @@ import { isAuthenticated } from "util/auth";
 type Props = {
   children: React.ReactNode;
   path: string;
+ 
 };
 
 const PrivateRoute = ({ children, path }: Props) => {
@@ -11,14 +12,15 @@ const PrivateRoute = ({ children, path }: Props) => {
     <Route
       path={path}
       render={({ location }) =>
-        isAuthenticated() ? ( <>{children}</>
-        ) : (
+        !isAuthenticated() ? (
           <Redirect
             to={{
               pathname: "/",
               state: { from: location },
             }}
           />
+        ) : (
+         <> {children}</>
         )
       }
     />
