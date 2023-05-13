@@ -45,7 +45,7 @@ const MovieDetails = () => {
           <Validation movieId={movieId} onInsertReview={handleInsertReview} />
         )}
 
-        <TestiMony reviews={} /> 
+        <TestiMony reviews={reviews} /> 
         
       </div>
     </div>
