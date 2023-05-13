@@ -33,8 +33,7 @@ const MovieDetails = () => {
     const clone = [...reviews];
     clone.push(review);
     setReviews(clone);
-
-  }
+  };
 
   return (
     <div className="container-moviedetails">
@@ -43,11 +42,15 @@ const MovieDetails = () => {
 
         {hasAnyRoles(["ROLE_MEMBER"]) && (
           <Validation movieId={movieId} onInsertReview={handleInsertReview} />
-        )}
-
-        <TestiMony reviews={reviews} /> 
+        )};
+        </div>
+          <div>
+           
+              <TestiMony reviews={reviews} />
+           
+          </div>
         
-      </div>
+      
     </div>
   );
 };
