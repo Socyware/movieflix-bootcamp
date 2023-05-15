@@ -5,8 +5,8 @@ import { MoviesReviews } from "types/moviesReviews";
 import Validation from "components/Validation";
 import { useParams } from "react-router-dom";
 import { hasAnyRoles } from "util/auth";
-import TestiMony from "components/TestiMony";
 import "./styles.css";
+import TestiMony from "components/TestiMony";
 
 type urlParams = {
   movieId: string;
@@ -39,18 +39,19 @@ const MovieDetails = () => {
     <div className="container-moviedetails">
       <div>
         <h1>Tela detalhes do filme id: {movieId}</h1>
-
-        {hasAnyRoles(["ROLE_MEMBER"]) && (
-          <Validation movieId={movieId} onInsertReview={handleInsertReview} />
-        )};
+        <div>
+          {hasAnyRoles(["ROLE_MEMBER"]) && (
+            <Validation movieId={movieId} onInsertReview={handleInsertReview} />
+          )}
+          ;
         </div>
-          <div>
-           
-              <TestiMony reviews={reviews} />
-           
-          </div>
-        
-      
+      </div>
+
+      {reviews.map((reviews) => (
+        <div key={reviews.id}>
+          <TestiMony reviews={reviews} />
+        </div>
+      ))}
     </div>
   );
 };

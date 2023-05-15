@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { AxiosRequestConfig } from "axios";
-import { requestBackend } from "util/requests";
+import {  requestBackend } from "util/requests";
 import { MoviesReviews } from "types/moviesReviews";
 import "./styles.css";
 

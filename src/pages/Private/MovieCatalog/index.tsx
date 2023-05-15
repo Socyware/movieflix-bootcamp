@@ -11,10 +11,12 @@ const MovieCatalog = () => {
         <h1>Tela listagem de filmes</h1>
       </div>
       <div className="listmovie-details">
-        <Link to="/movies/:movieid">
+        <Link to="/movies/1">
           <h4>Acessar /movies/1</h4>
         </Link>
+        <Link to="/movies/2">
         <h4>Acessar /movies/2</h4>
+        </Link>
       </div>
       
     </div>
