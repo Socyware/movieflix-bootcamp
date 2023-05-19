@@ -1,6 +1,5 @@
 import { ReactComponent as Star } from "assets/img/Star.svg";
 import { MoviesReviews } from "types/moviesReviews";
-
 import './styles.css';
 
 type Props = {
@@ -8,6 +7,8 @@ type Props = {
 };
 
 const TestiMony = ({ reviews }: Props) => {
+
+  
   return (
     <div className="container-testimony base-card">
       <div className="card-testimony">

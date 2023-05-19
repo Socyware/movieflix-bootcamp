@@ -14,8 +14,6 @@ type FormData = {
   text: string;
 };
 
-
-
 const Validation = ({ movieId, onInsertReview }: Props) => {
   const {
     register,
@@ -34,6 +32,7 @@ const Validation = ({ movieId, onInsertReview }: Props) => {
       url: "/reviews",
       data: formData,
       withCredentials: true,
+      
     };
 
     requestBackend(config)

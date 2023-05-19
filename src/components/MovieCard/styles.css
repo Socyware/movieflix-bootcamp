@@ -1,7 +1,43 @@
-.movie-card{
-    margin-bottom: 30px;
+.movieCard-container {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  width: 300px;
+  height: 322px;
 }
 
-.card-top-container{
+.movieCard-container-img {
+  height: 164.09483337402344px;
+  width: 300px;
+  left: 0px;
+  top: 26px;
+  border-radius: 0px;
+  margin-top: 26px;
+}
 
+.movieCard-container-main{
+    margin-top: 10px;
+    padding-left: 15px;
+    margin-bottom: 
+
+}
+
+.movieCard-years-old{
+    font-size: 16px;
+    color: #FFC700;
+
+}
+
+.movieCard-title {
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+}
+
+.movieCard-subtitle{
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: none;
 }

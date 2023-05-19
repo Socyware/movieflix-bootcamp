@@ -5,14 +5,15 @@ import { MoviesReviews } from "types/moviesReviews";
 import Validation from "components/Validation";
 import { useParams } from "react-router-dom";
 import { hasAnyRoles } from "util/auth";
-import "./styles.css";
 import TestiMony from "components/TestiMony";
+import "./styles.css";
 
 type urlParams = {
   movieId: string;
 };
 
 const MovieDetails = () => {
+  
   const { movieId } = useParams<urlParams>();
 
   const [reviews, setReviews] = useState<MoviesReviews[]>([]);
