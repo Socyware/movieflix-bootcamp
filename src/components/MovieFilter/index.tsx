@@ -1,14 +1,14 @@
-import { MoviesByGenre } from "types/moviesByGenre";
+import { ReactComponent as SearchIcon } from "assets/img/Seta.svg";
 import { Controller, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { requestBackend } from "util/requests";
 import Select from "react-select";
+import { Genres } from "types/genres";
 import "./styles.css";
-
 
 export type MovieFilterData = {
   name: string;
-  genre: MoviesByGenre | null;
+  genre: Genres | null;
 };
 
 type Props = {
@@ -16,9 +16,9 @@ type Props = {
 };
 
 const MovieFilter = ({ onSubmitFilter }: Props) => {
-    const [selectCategories, setSelectCategories] = useState<MoviesByGenre[]>([]);
+  const [selectCategories, setSelectCategories] = useState<Genres[]>([]);
 
-  const { register, handleSubmit, setValue, getValues, control } = useForm<
+  const { handleSubmit, setValue, getValues, control } = useForm<
     MovieFilterData
   >();
 
@@ -26,12 +26,8 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
     onSubmitFilter(formData);
   };
 
-  const hadleFormClear = () => {
-    setValue("name", "");
-    setValue("genre", null);
-  };
 
-  const handleChangeGenre = (value: MoviesByGenre) => {
+  const handleChangeGenre = (value: Genres) => {
     setValue("genre", value);
 
     const obj: MovieFilterData = {
@@ -40,7 +36,6 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
     };
 
     onSubmitFilter(obj);
-
   };
 
   useEffect(() => {
@@ -50,30 +45,31 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
   }, []);
 
   return (
-    <div className="base-card product-filter-container">
-      <form onSubmit={handleSubmit(onSubmit)} className="product-filter-form">
-        <div className="product-filter-bottom-container ">
-          <div className="product-filter-category-container">
-            <Controller
-              name="genre"
-              control={control}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={selectCategories}
-                  isClearable
-                  placeholder="Categoria"
-                  classNamePrefix="product_filter_select__control"
-                  onChange={(value) => handleChangeGenre(value as MoviesByGenre)}
-                  getOptionLabel={(genre: MoviesByGenre) => genre.title}
-                  getOptionValue={(genre: MoviesByGenre) => String(genre.id)}
-                />
-              )}
-            />
-          </div>
+    <div className="base-card genre-filter-container">
+    <form onSubmit={handleSubmit(onSubmit)} className="genre-filter-form">
+      <div className="genre-filter-bottom-container ">
+        <div className="genre-filter-category-container">
+          <Controller
+            name="genre"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={selectCategories}
+                isClearable
+                placeholder="Categoria"
+                classNamePrefix="genre_filter_select__control"
+                onChange={(value) => handleChangeGenre(value as Genres)}
+                getOptionLabel={(genre: Genres) => genre.name}
+                getOptionValue={(genre: Genres) => String(genre.id)}
+              />
+            )}
+          />
+          <SearchIcon />
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
+  </div>
   );
 };
 

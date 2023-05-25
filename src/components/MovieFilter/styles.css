@@ -1,0 +1,15 @@
+.genre-filter-bottom-container {
+  display: flex;
+}
+
+.genre-filter-category-container {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.genre_filter_select__control {
+  height: 52px;
+  color: #263238;
+  border: none !important;
+  border-bottom: 1px solid #e1e1e1e1 !important;
+}
