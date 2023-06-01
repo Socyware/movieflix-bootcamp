@@ -5,7 +5,7 @@
   padding: 0;
 }
 
-.movieCard-container {
+.movieCardDetails-container {
   display: flex;
   flex-direction: column;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
@@ -15,44 +15,44 @@
   
 }
 
-.movieCard-container-img {
+.movieCardDetails-container-img {
   max-width: 100%;
   border-radius: 0px;
   margin-top: 26px;
 }
 
-.movieCard-container-main {
+.movieCardDetails-container-main {
   margin-top: 10px;
   padding-left: 15px;
 }
 
-.movieCard-years-old {
+.movieCardDetails-years-old {
   font-size: 16px;
   color: #ffc700;
 }
 
-.movieCard-title {
+.movieCardDetails-title {
   font-size: 20px;
   line-height: 27px;
   letter-spacing: -0.015em;
   color: #ffffff;
 }
 
-.movieCard-subtitle {
+.movieCardDetails-subtitle {
   color: #ffffff;
   font-size: 14px;
   font-weight: none;
 }
 
 @media (min-width: 576px) {
-  .movieCard-container {
+  .movieCardDetails-container {
     width: 258px;
     height: 322px;
   }
 }
 
 @media (min-width: 720px){
-  .movieCard-container {
+  .movieCardDetails-container {
     margin-left: 80px;
    
   }

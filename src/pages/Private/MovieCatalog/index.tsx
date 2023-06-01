@@ -6,8 +6,8 @@ import { requestBackend } from "util/requests";
 import { SpringPage } from "types/vendor/spring";
 import Pagination from "components/Pagination";
 import MovieFilter, { MovieFilterData } from "components/MovieFilter";
+import { Link } from "react-router-dom";
 import "./styles.css";
-
 
 type ControlComponentsData = {
   activePage: number;
@@ -44,7 +44,7 @@ const MovieCatalog = () => {
         page: controlComponentsData.activePage,
         size: 4,
         name: controlComponentsData.filterData.name,
-        movieId: controlComponentsData.filterData.genre?.id,
+        genreId: controlComponentsData.filterData.genre?.id,
       },
     };
 
@@ -58,26 +58,27 @@ const MovieCatalog = () => {
   }, [getMovies]);
 
   return (
-    <div className="base-card container-listmovie">
-     
-     <MovieFilter onSubmitFilter={handleSubmitFilter} />
-      
-      <div>
+    <div className="container-listmovie ">
+      <MovieFilter onSubmitFilter={handleSubmitFilter} />
+      <Link to="/movies/details/:movieId">
+        <div className="row">
           {movieById?.content.map((movieById) => (
-            <div key={movieById.id}>
+            <div className="col-sm-6 col-md-3" key={movieById.id}>
               <MovieCard movieById={movieById} />
             </div>
           ))}
         </div>
-        <div>
-          <Pagination
-            forcePage={movieById?.number}
-            pageCount={movieById ? movieById.totalPages : 0}
-            range={5}
-            onChange={handlePageChange}
-          />
-        </div>
+      </Link>
+
+      <div className="row">
+        <Pagination
+          forcePage={movieById?.number}
+          pageCount={movieById ? movieById.totalPages : 0}
+          range={5}
+          onChange={handlePageChange}
+        />
       </div>
+    </div>
   );
 };
 

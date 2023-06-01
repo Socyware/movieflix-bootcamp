@@ -4,28 +4,43 @@ import { requestBackend } from "util/requests";
 import { MoviesReviews } from "types/moviesReviews";
 import Validation from "components/Validation";
 import { useParams } from "react-router-dom";
-import { hasAnyRoles } from "util/auth";
 import TestiMony from "components/TestiMony";
+import { SpringPage } from "types/vendor/spring";
+import { MovieById } from "types/movieById";
 import "./styles.css";
+import MovieCardDetails from "components/MovieCardDetails";
 
 type urlParams = {
   movieId: string;
 };
 
 const MovieDetails = () => {
-  
   const { movieId } = useParams<urlParams>();
+
+  const [movieCard, setmovieCard] = useState<SpringPage<MovieById>>();
 
   const [reviews, setReviews] = useState<MoviesReviews[]>([]);
 
   useEffect(() => {
-    const config: AxiosRequestConfig = {
+    const configMovie: AxiosRequestConfig = {
+      method: "GET",
+      url: `/movies/${movieId}`,
+      withCredentials: true,
+    };
+
+    requestBackend(configMovie).then((response) => {
+      setReviews(response.data);
+    });
+  }, [movieId]);
+
+  useEffect(() => {
+    const configReviews: AxiosRequestConfig = {
       method: "GET",
       url: `/movies/${movieId}/reviews`,
       withCredentials: true,
     };
 
-    requestBackend(config).then((response) => {
+    requestBackend(configReviews).then((response) => {
       setReviews(response.data);
     });
   }, [movieId]);
@@ -41,10 +56,10 @@ const MovieDetails = () => {
       <div>
         <h1>Tela detalhes do filme id: {movieId}</h1>
         <div>
-          {hasAnyRoles(["ROLE_MEMBER"]) && (
-            <Validation movieId={movieId} onInsertReview={handleInsertReview} />
-          )}
-          ;
+          <MovieCardDetails />
+        </div>
+        <div>
+          <Validation movieId={movieId} onInsertReview={handleInsertReview} />
         </div>
       </div>
 

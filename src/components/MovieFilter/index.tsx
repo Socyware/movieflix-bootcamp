@@ -1,4 +1,3 @@
-import { ReactComponent as SearchIcon } from "assets/img/Seta.svg";
 import { Controller, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { requestBackend } from "util/requests";
@@ -16,7 +15,7 @@ type Props = {
 };
 
 const MovieFilter = ({ onSubmitFilter }: Props) => {
-  const [selectCategories, setSelectCategories] = useState<Genres[]>([]);
+  const [selectGenre, setSelectGenre] = useState<Genres[]>([]);
 
   const { handleSubmit, setValue, getValues, control } = useForm<
     MovieFilterData
@@ -25,7 +24,6 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
   const onSubmit = (formData: MovieFilterData) => {
     onSubmitFilter(formData);
   };
-
 
   const handleChangeGenre = (value: Genres) => {
     setValue("genre", value);
@@ -39,37 +37,36 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
   };
 
   useEffect(() => {
-    requestBackend({ url: "/genres" }).then((response) => {
-      setSelectCategories(response.data.content);
+    requestBackend({ url: "/genres", withCredentials:true }).then((response) => {
+      setSelectGenre(response.data);
     });
   }, []);
 
   return (
     <div className="base-card genre-filter-container">
-    <form onSubmit={handleSubmit(onSubmit)} className="genre-filter-form">
-      <div className="genre-filter-bottom-container ">
-        <div className="genre-filter-category-container">
-          <Controller
-            name="genre"
-            control={control}
-            render={({ field }) => (
-              <Select
-                {...field}
-                options={selectCategories}
-                isClearable
-                placeholder="Categoria"
-                classNamePrefix="genre_filter_select__control"
-                onChange={(value) => handleChangeGenre(value as Genres)}
-                getOptionLabel={(genre: Genres) => genre.name}
-                getOptionValue={(genre: Genres) => String(genre.id)}
-              />
-            )}
-          />
-          <SearchIcon />
+      <form onSubmit={handleSubmit(onSubmit)} className="genre-filter-form ">
+        <div className="genre-filter-bottom-container  ">
+          <div className="genre-filter-category-container ">
+            <Controller
+              name="genre"
+              control={control}
+              render={({ field }) => (
+                <Select
+                  {...field}
+                  options={selectGenre}
+                  isClearable
+                  placeholder="Categoria"
+                  classNamePrefix="genre_filter_select__control"
+                  onChange={(value) => handleChangeGenre(value as Genres)}
+                  getOptionLabel={(genre: Genres) => genre.name}
+                  getOptionValue={(genre: Genres) => String(genre.id)}
+                />
+              )}
+            />
+          </div>
         </div>
-      </div>
-    </form>
-  </div>
+      </form>
+    </div>
   );
 };
 

@@ -8,7 +8,6 @@ type Props = {
 
 const TestiMony = ({ reviews }: Props) => {
 
-  
   return (
     <div className="container-testimony base-card">
       <div className="card-testimony">
@@ -16,7 +15,6 @@ const TestiMony = ({ reviews }: Props) => {
           <Star />
           <h4>{reviews.user.name} </h4>
         </div>
-
         <div className="card-testimony-description">
           <h5>{reviews.text}</h5>
         </div>
