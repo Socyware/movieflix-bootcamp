@@ -65,7 +65,7 @@ const MovieCatalog = () => {
 
       <div className=" row container-movie-card ">
         {movieById?.content.map((movieById) => (
-          <div className=" col col-sm-6 col-md-6 col-lg-6">
+          <div className=" col col-sm-6 col-lg-4 col-xl-3">
             <MovieCard movieById={movieById} />
           </div>
         ))}

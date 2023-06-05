@@ -29,7 +29,7 @@ const MovieDetails = () => {
     };
 
     requestBackend(configMovie).then((response) => {
-      setReviews(response.data);
+      setmovieCard(response.data);
     });
   }, [movieId]);
 
@@ -54,10 +54,12 @@ const MovieDetails = () => {
   return (
     <div className="container-moviedetails">
       <div>
-        <h1>Tela detalhes do filme id: {movieId}</h1>
-        <div>
-          <MovieCardDetails />
-        </div>
+        {movieCard?.content.map((movieCard) => (
+          <div key={movieCard.id}>
+            <MovieCardDetails movieCard={movieCard} />
+          </div>
+        ))}
+
         <div>
           <Validation movieId={movieId} onInsertReview={handleInsertReview} />
         </div>

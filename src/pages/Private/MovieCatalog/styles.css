@@ -9,10 +9,6 @@
 
 }
 
-.row{
-  display: unset;
-}
-
 @media (min-width: 576px) {
   .container-listmovie {
     height: 854px;
@@ -23,18 +19,6 @@
     margin: 0;
     padding-left: 15px;
   }
-
-  .col{
-    margin-left: -12px;
-    
-  }
-  
-  .row{
-    display: flex;
-    
-    padding-right: -15px;
-  }
-
   
 }
 

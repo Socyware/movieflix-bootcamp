@@ -6,7 +6,7 @@ export type Props = {
 };
 
 
-const MovieCardDetails = () => {
+const MovieCardDetails = ({movieCard}:Props) => {
   return (
     <div className="movie-container">
       <div className="movieCardDetails-container base-card">
@@ -19,16 +19,16 @@ const MovieCardDetails = () => {
         </div>
         <div className="movieCardDetails-container-main">
           <div>
-            <h1 className="movieCardDetails-title"> </h1>
+            <h1 className="movieCardDetails-title">{movieCard.title} </h1>
           </div>
           <div>
-            <h3 className="movieCardDetails-years-old">  </h3>
+            <h3 className="movieCardDetails-years-old"> {movieCard.year}</h3>
           </div>
           <div>
-            <p className="movieCardDetails-subtitle"> </p>
+            <p className="movieCardDetails-subtitle"> {movieCard.subTitle}</p>
           </div>
           <div>
-            <h6 className="movieCardDetails-"> </h6>
+            <h6 className="movieCardDetails-">{movieCard.synopsis} </h6>
           </div>
         </div>
       </div>
