@@ -1,4 +1,28 @@
-.container-listmovie{
-    margin: 0;
-    padding: 0;
+.container-listmovie {
+  border: solid blue;
+  margin: 0;
+  padding: 0; 
+}
+
+
+.container-movie-card {
+  padding: 0;
+  margin: 0;
+  border: solid salmon;
+}
+
+
+.row{
+  border: solid white;
+  
+
+}
+
+
+@media (min-width: 576px) {
+  
+}
+
+@media (min-width: 768px) {
+
 }

@@ -43,7 +43,7 @@ const MovieFilter = ({ onSubmitFilter }: Props) => {
   }, []);
 
   return (
-    <div className="base-card genre-filter-container">
+    <div className="genre-filter-container">
       <form onSubmit={handleSubmit(onSubmit)} className="genre-filter-form ">
         <div className="genre-filter-bottom-container  ">
           <div className="genre-filter-category-container ">

@@ -6,7 +6,7 @@ import { requestBackend } from "util/requests";
 import { SpringPage } from "types/vendor/spring";
 import Pagination from "components/Pagination";
 import MovieFilter, { MovieFilterData } from "components/MovieFilter";
-import { Link } from "react-router-dom";
+
 import "./styles.css";
 
 type ControlComponentsData = {
@@ -58,19 +58,22 @@ const MovieCatalog = () => {
   }, [getMovies]);
 
   return (
-    <div className="container-listmovie ">
-      <MovieFilter onSubmitFilter={handleSubmitFilter} />
-      <Link to="/movies/details/:movieId">
-        <div className="row">
-          {movieById?.content.map((movieById) => (
-            <div className="col-sm-6 col-md-3" key={movieById.id}>
-              <MovieCard movieById={movieById} />
-            </div>
-          ))}
-        </div>
-      </Link>
+    <div className="container-listmovie">
+      <div className="row mt-2 mb-2">
+        <MovieFilter onSubmitFilter={handleSubmitFilter} />
+      </div>
 
-      <div className="row">
+      <div className="container-movie-card">
+        <div className=" row">
+        {movieById?.content.map((movieById) => (
+          <div className="col-sm-6 col-md-6 col-lg-6">
+            <MovieCard movieById={movieById} />
+          </div>
+        ))}
+        </div>
+      </div>
+
+      <div className="row my-2">
         <Pagination
           forcePage={movieById?.number}
           pageCount={movieById ? movieById.totalPages : 0}

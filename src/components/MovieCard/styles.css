@@ -1,29 +1,37 @@
 .movie-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: wrap; 
+  border:  solid  green;
+  margin: 0;
   padding: 0;
+
+ 
+
 }
 
 .movieCard-container {
   display: flex;
   flex-direction: column;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  max-height: 322px;
+  max-width: 100%;
   border-radius: 4px;
-  width: 300px;
-  height: 322px;
-  
+  background: #6c6c6c;
+  border: solid red;
+  padding: 0;
+ 
+
 }
 
 .movieCard-container-img {
   max-width: 100%;
-  border-radius: 0px;
   margin-top: 26px;
 }
 
 .movieCard-container-main {
   margin-top: 10px;
-  padding-left: 15px;
+  padding-left: 5px;
+  padding: 15px;
 }
 
 .movieCard-years-old {
@@ -48,13 +56,12 @@
   .movieCard-container {
     width: 258px;
     height: 322px;
+    
+   
   }
 }
 
-@media (min-width: 720px){
-  .movieCard-container {
-    margin-left: 80px;
-   
+@media (min-width: 768px) {
+   .movieCard-container {
   }
-
 }

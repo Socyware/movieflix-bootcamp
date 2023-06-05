@@ -8,7 +8,7 @@ import "./styles.css";
 const MovieCard = ({ movieById }: Props) => {
   return (
     <div className="movie-container">
-      <div className="movieCard-container base-card">
+      <div className="movieCard-container">
         <div>
           <img
             className="movieCard-container-img"
