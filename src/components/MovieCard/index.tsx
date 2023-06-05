@@ -7,7 +7,6 @@ import "./styles.css";
 
 const MovieCard = ({ movieById }: Props) => {
   return (
-    <div className="movie-container">
       <div className="movieCard-container">
         <div>
           <img
@@ -28,8 +27,7 @@ const MovieCard = ({ movieById }: Props) => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
 };
 
 export default MovieCard;

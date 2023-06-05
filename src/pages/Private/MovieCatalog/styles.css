@@ -1,28 +1,42 @@
 .container-listmovie {
-  border: solid blue;
   margin: 0;
-  padding: 0; 
-}
-
-
-.container-movie-card {
   padding: 0;
-  margin: 0;
-  border: solid salmon;
 }
 
+.container-movie-card{
+ display: flex;
+ flex-wrap: wrap;
+
+}
 
 .row{
-  border: solid white;
-  
-
+  display: unset;
 }
 
-
 @media (min-width: 576px) {
+  .container-listmovie {
+    height: 854px;
+    width: 576px;
+  }
+
+  .container-movie-card {
+    margin: 0;
+    padding-left: 15px;
+  }
+
+  .col{
+    margin-left: -12px;
+    
+  }
+  
+  .row{
+    display: flex;
+    
+    padding-right: -15px;
+  }
+
   
 }
 
 @media (min-width: 768px) {
-
 }

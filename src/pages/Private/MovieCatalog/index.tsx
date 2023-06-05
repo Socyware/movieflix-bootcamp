@@ -63,14 +63,12 @@ const MovieCatalog = () => {
         <MovieFilter onSubmitFilter={handleSubmitFilter} />
       </div>
 
-      <div className="container-movie-card">
-        <div className=" row">
+      <div className=" row container-movie-card ">
         {movieById?.content.map((movieById) => (
-          <div className="col-sm-6 col-md-6 col-lg-6">
+          <div className=" col col-sm-6 col-md-6 col-lg-6">
             <MovieCard movieById={movieById} />
           </div>
         ))}
-        </div>
       </div>
 
       <div className="row my-2">

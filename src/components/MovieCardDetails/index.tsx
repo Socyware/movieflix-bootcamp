@@ -9,10 +9,10 @@ export type Props = {
 const MovieCardDetails = () => {
   return (
     <div className="movie-container">
-      <div className="movieCard-container base-card">
+      <div className="movieCardDetails-container base-card">
         <div>
           <img
-            className="movieCard-container-img"
+            className="movieCardDetails-container-img"
             src=""
             alt=""
           />
